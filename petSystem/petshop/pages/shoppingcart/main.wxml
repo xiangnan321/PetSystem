@@ -1,0 +1,33 @@
+<!--pages/shoppingcart/main.wxml-->
+<view>
+	<view wx:if="{{shoppingcart!=null}}" class="goodCartBody">
+		<view wx:for="{{shoppingcart}}" wx:key="index" class="goodCart">
+			<van-swipe-cell right-width="{{ 65 }}" class="swipeCell" data-id="{{item.sC_id}}" async-close bind:close="swipeClose">
+				<van-cell-group class="cellGroup">
+					<van-checkbox value="{{ item.checked }}" data-id="{{index}}" bind:change="checkboxChange">
+					</van-checkbox>
+					<van-card class="vanCard" custom-class="cardBody" price="{{item.goodsBean.good_price}}" title="{{item.goodsBean.good_name}}" thumb="{{ item.goodsBean.good_images }}">
+						<view slot="desc" class="descStyle">
+            {{ item.goodsBean.good_desc }}argasadfaeqwerwertyrerwweertyrwe
+						</view>
+						<view slot="num" class="numStyle">
+							<van-stepper long-press="{{ false }}" value="{{ item.sC_num }}"  data-id="{{index}}" async-change bind:change="stepperChange"  max="666" />
+						</view>
+					</van-card>
+				</van-cell-group>
+				<view slot="right" class="rightStyle">删除</view>
+			</van-swipe-cell>
+		</view>
+	</view>
+	<view wx:else>
+		<image src="http://192.168.43.250:3000/pageImgs/carddownload.jpg"></image>
+	</view>
+	<van-submit-bar decimal-length="{{2}}" price="{{ money*100 }}" button-text="提交订单" bind:submit="submitOrder" tip="{{ true }}">
+		<van-tag type="primary">
+    <van-checkbox value="{{ checked }}" bind:change="primaryChange">全选</van-checkbox>
+    </van-tag>
+		<!-- <view slot="tip">
+			您的收货地址不支持同城送, <text>修改地址</text>
+		</view> -->
+	</van-submit-bar>
+</view>

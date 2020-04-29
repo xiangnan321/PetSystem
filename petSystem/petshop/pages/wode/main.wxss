@@ -1,0 +1,80 @@
+/* pages/wode/main.wxss */
+.loginBtn {
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+}
+.loginBtn>image {
+  width: 100px;
+  height: 100px;
+}
+
+.card {
+  /* display: flex; */
+  text-align: center;
+  /* border-bottom: 5px solid rgb(177, 171, 171); */
+  background-image: url("http://192.168.43.250:3000/pageImgs/background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 15px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+.card image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+}
+.card .nameStyle {
+  text-align: center;
+  font-size: 22px;
+}
+
+.cell {
+  border-bottom: 0.5px solid rgb(182, 172, 172);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: 20px; */
+  padding: 10px;
+  background-color: white;
+}
+.cell > .span:last-child {
+  font-size: 14px;
+  color: rgb(141, 137, 137);
+}
+.goodOrder {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.goodOrder > .div {
+  text-align: center;
+}
+.goodOrder image {
+  width: 32px;
+  height: 32px;
+}
+.goodOrder > .div > .p {
+  text-align: center;
+}
+
+.more {
+  border-bottom: 0.5px solid rgb(182, 172, 172);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-top: 20px;
+  background-color: white;
+}
+.more > .span:last-child {
+  font-size: 14px;
+  color: rgb(141, 137, 137);
+}

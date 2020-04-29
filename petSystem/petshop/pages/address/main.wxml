@@ -1,0 +1,26 @@
+<!--pages/address/main.wxml-->
+<view class="addressBody">
+	<view wx:if="{{addressList.length>0}}">
+		<van-radio-group value="{{ add_id }}" bind:change="onChange" id="onChange">
+			<van-radio name="{{item.add_id}}" checked-color="#07c160" class="radidAdd" wx:for="{{addressList}}" wx:key="index">
+				<view class="addCard">
+					<view>
+						<view class="lineOne"><text>{{item.add_name}}</text><text class="phone">{{item.add_phone}}</text><text class="default" wx:if="{{item.usersBean.user_address==item.add_id}}">默认</text></view>
+						<view class="lineTwo">
+							<view class="address">{{item.add_address}}</view>
+						</view>
+					</view>
+					<view class="editImg" data-type="edit" id="addressEdit" data-id="{{item.add_id}}" catchtap="addressEdit">
+						<image src="../../assets/image/edit.png"></image>
+					</view>
+				</view>
+			</van-radio>
+		</van-radio-group>
+	</view>
+	<view wx:else class="notAdd">
+		<image src="http://192.168.1.143:3000/pageImgs/addressNot.jpg"></image>
+	</view>
+	<view class="addBtn">
+		<van-button type="danger" round size="normal" custom-style="width: 95%;margin-left: 2%;" data-type="add" bind:click="addressEdit">新增地址</van-button>
+	</view>
+</view>

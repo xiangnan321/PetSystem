@@ -1,0 +1,85 @@
+/* pages/index/main.wxss */
+.bodyStyle{
+  background-color:#f4f4f4 ;
+  /* padding-bottom: 30px; */
+}
+.functionBar{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.functionBar .barName{
+  font-size: 16px;
+}
+.functionBar .barImg{
+  text-align: center;
+}
+
+.cheapGoods{
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.divider{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.divider_line{
+  color: gray;
+  margin: 0 10px;
+}
+.image-group {
+  width: 100%;
+  padding: 5px;
+  background: #fff;
+  /*  这个一定要有：将图片都横向展示 */
+  white-space: nowrap;
+}
+.item_list{
+  display: inline-block;
+  width: 130px;
+  height: 160px;
+  padding: 10px;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+.item_list>image{
+  width: 120px;
+}
+.item_text{
+  width: 120px;
+  height: 21px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recommend{
+  background-color: white;
+  padding-top: 10px;
+}
+.goodThing{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.goodThing_good{
+  display: inline-block;
+  width: 120px;
+  height: 180px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.item_price{
+  color: red;
+  margin-top: 10px;
+}
+.goodBorder{
+  box-shadow: 3px 4px 5px 5px rgb(191, 189, 189);
+  border: 1px solid #f1f1f1;
+}
+
+.baseline{
+  background-color: white;
+}

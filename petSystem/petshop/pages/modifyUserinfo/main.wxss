@@ -1,0 +1,30 @@
+/* pages/modifyUserinfo/main.wxss */
+.inputInformation {
+  width: 94%;
+  margin: 30px auto;
+}
+
+.headPortrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.uploaderText{
+  padding: 10px;
+  color: #f21d5c;
+}
+
+.genderStyle {
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid #ebe5e5;
+  padding: 7px 15px;
+}
+
+.genderStyle>view:first-child {
+  margin-right: 20%;
+}
+
+.labelStyle {
+  margin-right: 10px;
+}

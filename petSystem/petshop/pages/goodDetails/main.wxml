@@ -1,0 +1,141 @@
+<!--pages/goodDetails/main.wxml-->
+<view>
+	<view class="detailsBody">
+		<swiperImg imgUrls="{{imgUrls}}" swiperHeight="height:280px" aspectFit="aspectFll"></swiperImg>
+		<view class="details">
+			<view class="information">
+				<view class="_p">￥{{goodDetail.good_price}}</view>
+				<view class="_p">{{goodDetail.good_name}}</view>
+				<!-- <view class="_p">{{goodDetail.good_cassify}}</view> -->
+			</view>
+			<view class="_p">
+				<image src="../../assets/image/resizeApi.png" />
+			</view>
+		</view>
+		<van-cell-group>
+			<van-cell is-link>
+				<view slot="title" class="cellSlot">
+					<view>活动</view>
+					<view class="marginLeft redStyle ">
+						<van-icon name="bill" color="red" />领现金红包</view>
+					<view>特价版专用，购物低至1分钱</view>
+				</view>
+			</van-cell>
+			<van-cell is-link>
+				<view slot="title" class="cellSlot">
+					<view>保障</view>
+					<view class="marginLeft">假一赔十 · 破损包退 · 360质保 · 极速退款</view>
+				</view>
+			</van-cell>
+			<van-cell is-link bind:click="parameterSelect">
+				<view slot="title" class="cellSlot">
+					<view>参数</view>
+					<view class="marginLeft">类型，产地，生产日期...</view>
+				</view>
+			</van-cell>
+		</van-cell-group>
+		<van-tabs sticky swipeable custom-class="tabStyle" tab-active-class="vanTab" nav-class="naClass">
+			<van-tab title="详情">
+				<view class="detailsImg">
+					<image wx:for="{{imgUrls}}" wx:key="index" src="{{item.url}}" mode="aspectFit"></image>
+				</view>
+			</van-tab>
+			<van-tab title="评价">
+				<view class="evaluate seizeASeat">
+					<view class="_div">全部({{goodDetail.good_sum}})</view>
+					<view class="_div">好评({{goodDetail.good_sum}})</view>
+					<view class="_div">中评(0)</view>
+					<view class="_div">差评(0)</view>
+				</view>
+			</van-tab>
+			<van-tab title="推荐">
+				<view class="seizeASeat">暂无推荐商品</view>
+			</van-tab>
+		</van-tabs>
+	</view>
+	<view class="aoodsAction" wx:if="{{user!=null}}">
+		<van-goods-action>
+			<van-goods-action-icon icon="chat-o" text="客服" data-text="客服" bind:click="aoodsActionIcon" />
+			<van-goods-action-icon icon="cart-o" text="购物车" data-text="购物车" bind:click="aoodsActionIcon" />
+			<van-goods-action-button text="加入购物车" data-text="加入购物车" type="warning" bind:click="purchaseSelect" />
+			<van-goods-action-button text="立即购买" data-text="立即购买" bind:click="purchaseSelect" />
+		</van-goods-action>
+	</view>
+	<view class="notLoggedIn" wx:else>
+			<van-button color="#ed5d29" bind:click="loginPage" round custom-style="width: 96%;margin: 30% 0 5px 2%;">登录后进行操作</van-button>
+	</view>
+	<van-action-sheet overlay show="{{ parameterShow }}" title="产品参数" bind:close="parameterClose">
+		<view>
+			<van-cell-group>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">适用宠物</view>
+						<view class="parameterContent">{{goodDetail.good_pet}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">种类</view>
+						<view class="parameterContent">{{goodDetail.good_cassify}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">产地</view>
+						<view class="parameterContent">{{goodDetail.good_producer}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">详情</view>
+						<view class="parameterContent">{{goodDetail.good_desc}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">生产日期</view>
+						<view class="parameterContent">{{goodDetail.good_production}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">保质期</view>
+						<view class="parameterContent">{{goodDetail.good_shelfLife}}</view>
+					</view>
+				</van-cell>
+				<van-cell>
+					<view slot="title" class="parameter">
+						<view class="parameterTitle">重量</view>
+						<view class="parameterContent">{{goodDetail.good_weight}}</view>
+					</view>
+				</van-cell>
+			</van-cell-group>
+			<van-button color="#ed5d29" round bind:click="parameterClose" custom-style="width: 96%;margin: 10% 2% 5px 2%;">关闭</van-button>
+		</view>
+	</van-action-sheet>
+	<van-action-sheet overlay show="{{ purchaseShow }}" bind:close="purchaseClose">
+		<view style="padding: 15px;">
+			<view class="lineOne">
+				<image src="{{goodDetail.good_images}}" mode="aspectFit" />
+				<view class="lineOne_details">
+					<view class="lineOne_details_price">￥<text>{{goodDetail.good_price}}</text></view>
+					<view class="lineOne_details_sum">库存666件</view>
+					<view class="lineOne_details_selected">已选:"{{goodDetail.good_name}}"</view>
+					<view class="lineOne_details_selected">付款后5天内发货</view>
+					<van-icon name="close" color="grey" class="close" bind:click="purchaseClose"/>
+				</view>
+			</view>
+			<view class="lineTwo">
+				<view>分类</view>
+				<view>
+					<image src="{{goodDetail.good_images}}" mode="aspectFit" />{{goodDetail.good_name}}
+				</view>
+			</view>
+			<view class="lineThree">
+				<view>购买数量</view>
+				<van-stepper value="{{ oG_sum }}" bind:change="stepperChange" max="666" />
+			</view>
+			<van-button color="#ed5d29" round bind:click="purchaseBtn" custom-style="width: 96%;margin: 30% 0 5px 2%;">确定</van-button>
+		</view>
+	</van-action-sheet>
+</view>

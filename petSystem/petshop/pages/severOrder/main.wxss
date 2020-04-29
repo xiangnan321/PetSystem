@@ -1,0 +1,30 @@
+/* pages/severOrder/main.wxss */
+.cardBody{
+  margin: 20px 10px;
+  border-radius: 10px;
+  background-color: white !important;
+}
+.descStyle{
+  margin-top: 10px;
+}
+.van-card__bottom{
+  margin-bottom: 10px;
+}
+.priceStyle{
+  margin-bottom: 10px;
+}
+.totalPrice{
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btnStyle{
+  margin-left: 5px;
+  width: 30%;
+}
+.emptyStyle{
+  background-color: white;
+}
+.emptyStyle>view{
+  text-align: center;
+}

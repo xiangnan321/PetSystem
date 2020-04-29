@@ -1,0 +1,63 @@
+/* pages/shoppingcart/main.wxss */
+.goodCartBody{
+  margin-bottom: 100px;
+}
+.goodCart {
+  background-color: white;
+  /* margin: 10px 0 10px 10px; */
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+.swipeCell {
+  display: flex;
+}
+
+.van-swipe-cell {
+  width: 100%;
+}
+
+.cellGroup {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.vanCard {
+  width: 100%;
+}
+
+.cardBody {
+  width: 100%;
+  background-color: white !important;
+}
+
+.descStyle {
+  width: 95%;
+  height: 50px;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+}
+
+.van-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.numStyle {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.rightStyle {
+  height: 100%;
+  width: 65px;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

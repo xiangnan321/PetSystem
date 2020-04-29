@@ -1,0 +1,33 @@
+<!--pages/severOrder/main.wxml-->
+<view>
+	<van-sticky>
+		<van-tabs active="{{active}}" bind:change="vanTabsChange">
+			<van-tab title="全部" name="4"></van-tab>
+			<van-tab title="待完成" name="1"></van-tab>
+			<van-tab title="待评价" name="2"></van-tab>
+			<van-tab title="已过期" name="3"></van-tab>
+		</van-tabs>
+	</van-sticky>
+	<view wx:if="{{serveOrder.length>0}}">
+		<view wx:for="{{serveOrder}}" wx:key="index" data-id="{{index}}">
+			<van-card num="{{item.oS_sum}}" tag="{{item.oS_state==3?'预约过期':item.oS_state==1?'待完成':'已完成'}}" price="{{item.serviceBean.ser_price}}" desc="逾期自动取消预约" custom-class="cardBody" desc-class="descStyle" title="{{item.serviceBean.ser_name}}" thumb="{{ serveImage[item.serviceBean.ser_classify]}}">
+				<view slot="footer">
+					<view class="priceStyle">共{{item.oS_sum}}次服务 合计:<text class="totalPrice">￥{{item.serviceBean.ser_price*item.oS_sum}}</text>
+						<view>预约时间：{{item.oS_time}}</view>
+					</view>
+					<van-button round size="small" custom-class="btnStyle">查看地址</van-button>
+					<van-button round size="small" custom-class="btnStyle" data-id="{{item.oS_id}}" wx:if="{{item.oS_state==1}}" bind:click="immediatePayment">确认完成</van-button>
+					<van-button round size="small" custom-class="btnStyle" data-type="取消预约" data-id="{{item.oS_id}}" wx:if="{{item.oS_state==1}}" bind:click="deleteOrder">取消预约</van-button>
+					<van-button round size="small" custom-class="btnStyle" data-type="删除订单" data-id="{{item.oS_id}}" wx:if="{{item.oS_state>1}}" bind:click="deleteOrder">删除订单</van-button>
+					<van-button round size="small" custom-class="btnStyle" data-id="{{item.oS_id}}" wx:if="{{item.oS_state==2}}" bind:click="evaluate">评价</van-button>
+					<van-button round size="small" custom-class="btnStyle" wx:if="{{item.oS_state==3}}">重新预约</van-button>
+					<van-button round size="small" custom-class="btnStyle" wx:if="{{item.oS_state==4}}">追加评价</van-button>
+				</view>
+			</van-card>
+		</view>
+	</view>
+	<view wx:else class="emptyStyle">
+		<image src="http://192.168.1.143:3000/pageImgs/u=416722945,3632396234&fm=26&gp=0.jpg"></image>
+		<view>您还没有相关订单</view>
+	</view>
+</view>

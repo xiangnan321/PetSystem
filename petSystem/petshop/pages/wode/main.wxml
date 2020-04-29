@@ -1,0 +1,105 @@
+<!--pages/wode/main.wxml-->
+<view class="counter-warp">
+	<view wx:if="{{user==null}}">
+		<view class="loginBtn">
+			<image src="../../assets/image/headPortrait.png"></image>
+			<van-button type="primary" wx:if="canIUse" open-type="getUserInfo" round bind:getuserinfo="bindGetUserInfo"  custom-style="width: 200px;">授权登录</van-button>
+			<view wx:else>请升级微信版本</view>
+		</view>
+	</view>
+	<view wx:else>
+		<view class="card">
+			<image src="{{user.user_image}}" mode="aspectFit" bindtap="uploaderImg" data-id="{{user.user_id}}"/>
+			<view class="nameStyle">{{user.user_username!=""?user.user_username:user.user_name}}</view>
+		</view>
+      <view class="cell">
+        <label class="span">我的商品订单</label>
+        <label class="span" bindtap="allGoodOrder" data-index="5">
+          查看全部商品订单
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="goodOrder">
+        <view bindtap="allGoodOrder" data-index="1" class="div">
+          <image src="../../assets/image/15.png" />
+          <view class="p">待付款</view>
+        </view>
+        <view bindtap="allGoodOrder" data-index="2" class="div">
+          <image src="../../assets/image/16.png" />
+          <view>待发货</view>
+        </view>
+        <view bindtap="allGoodOrder" data-index="3" class="div">
+          <image src="../../assets/image/17.png" />
+          <view>待收货</view>
+        </view>
+        <view bindtap="allGoodOrder" data-index="4" class="div">
+          <image src="../../assets/image/download1.jpg" />
+          <view>待评价</view>
+        </view>
+      </view>
+      <view class="cell">
+        <label class="span">我的服务订单</label>
+        <label class="span" bindtap="allseverOrder" data-index="4">
+          查看全部服务订单
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="goodOrder">
+        <view bindtap="allseverOrder" data-index="1" class="div">
+          <image src="../../assets/image/download.jpg" />
+          <view>待完成</view>
+        </view>
+        <view bindtap="allseverOrder" data-index="2" class="div">
+          <image src="../../assets/image/download1.jpg" />
+          <view>待评价</view>
+        </view>
+        <view bindtap="allseverOrder" data-index="3" class="div">
+          <image src="../../assets/image/beOverdue.png" />
+          <view>已过期</view>
+        </view>
+      </view>
+      <view class="more" bindtap="address">
+        <label>地址管理</label>
+        <label>
+          <van-icon  size="16px" name="location" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="more" bindtap="uploaderImg" data-id="{{user.user_id}}">
+        <label>修改个人信息</label>
+        <label>
+          <van-icon  size="16px" name="manager" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="more">
+        <label>我的优惠卷</label>
+        <label>
+          <van-icon  size="16px" name="bill" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="more">
+        <label>联系我们</label>
+        <label>
+          <van-icon  size="16px" name="service" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="more">
+        <label>我的收藏</label>
+        <label>
+          <van-icon  size="16px" name="star" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+      <view class="more">
+        <label>设置</label>
+        <label>
+          <van-icon  size="16px" name="setting" />
+          <van-icon  size="16px" name="arrow" color="#80848f" />
+        </label>
+      </view>
+		<van-divider contentPosition="center">我是有底线的</van-divider>
+	</view>
+</view>

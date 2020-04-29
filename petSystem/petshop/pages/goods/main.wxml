@@ -1,0 +1,26 @@
+<!--pages/goods/main.wxml-->
+<view>
+	<swiperImg imgUrls="{{imgUrls}}" swiperHeight="height:365rpx" aspectFit="aspectFll"></swiperImg>
+
+	<view class="classification">
+		<view style="width:30%">
+			<van-sticky>
+				<van-sidebar active-key="{{ activeKey }}" bind:change="sidebarChange">
+					<van-sidebar-item title="全部商品" />
+					<van-sidebar-item title="爱宠主食" />
+					<van-sidebar-item title="爱宠零食" />
+					<van-sidebar-item title="日常用品" />
+					<van-sidebar-item title="爱宠玩具" />
+				</van-sidebar>
+			</van-sticky>
+		</view>
+		<view class="cardBody">
+			<view wx:for="{{goodsList}}" wx:key="index" data-id="{{item.good_id}}" bindtap="goodDetail">
+				<van-card price="{{item.good_price}}" desc="{{item.good_desc}}" title="{{item.good_name}}" thumb="{{ item.good_images }}" custom-class="customClass" title-class="titleStyle" desc-class="titleStyle" />
+			</view>
+			<view wx:if="{{baseline||goodsList.length<currentPage*pageSize}}" class="baseline">
+				<van-divider contentPosition="center">我是有底线的</van-divider>
+			</view>
+		</view>
+	</view>
+</view>

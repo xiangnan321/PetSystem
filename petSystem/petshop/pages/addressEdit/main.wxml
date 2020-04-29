@@ -1,0 +1,20 @@
+<!--pages/addressEdit/main.wxml-->
+<view>
+	<view class="inputInformation">
+		<van-cell-group>
+			<van-field value="{{ add_name }}" required clearable label="姓名" placeholder="请输入收件人姓名" bind:change="add_nameChange" />
+			<van-field required clearable value="{{add_phone}}"  label="手机号" placeholder="请输入收件人手机号" error-message="{{nameMessage}}" bind:change="add_phoneChange" />
+			<van-field value="{{ add_address }}" required clearable label="收货地址" type="textarea" placeholder="收货地址" bind:change="add_addressChange" />
+			<van-cell center title="设为默认收货地址">
+				<van-switch checked="{{addDefault}}" bind:change="addDefaultChange" size="24px" />
+			</van-cell>
+		</van-cell-group>
+	</view>
+	<view wx:if="{{editType=='edit'}}">
+		<van-button type="danger" round size="normal" custom-style="width: 94%;margin-left: 3%;" data-type="edit" bind:click="editAddress">保存</van-button>
+		<van-button type="default" round size="normal" custom-style="width: 94%;margin-left: 3%;margin-top: 15px;" data-type="del" bind:click="editAddress">删除</van-button>
+	</view>
+	<view wx:else>
+		<van-button type="danger" round size="normal" custom-style="width: 94%;margin-left: 3%;" data-type="add" bind:click="editAddress">添加</van-button>
+	</view>
+</view>

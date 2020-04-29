@@ -1,0 +1,23 @@
+/* pages/goods/main.wxss */
+.classification {
+  display: flex;
+}
+
+.cardBody {
+  width: 70%;
+  overflow-y: auto;
+  height: 100%;
+  margin-right: 3%;
+}
+
+.customClass {
+  background-color: white !important;
+  margin-bottom: 10px;
+}
+
+.titleStyle {
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

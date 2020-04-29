@@ -1,0 +1,26 @@
+<!--pages/serve/main.wxml-->
+<view>
+	<swiperImg imgUrls="{{imgUrls}}" swiperHeight="height:365rpx" aspectFit="aspectFll"></swiperImg>
+	<view class="classification">
+		<view style="width:30%">
+			<van-sticky>
+				<van-sidebar active-key="{{ activeKey }}" bind:change="sidebarChange">
+					<van-sidebar-item title="全部服务" />
+					<van-sidebar-item title="宠物寄养" />
+					<van-sidebar-item title="宠物美容" />
+					<van-sidebar-item title="宠物医疗" />
+					<van-sidebar-item title="宠物摄影" />
+				</van-sidebar>
+			</van-sticky>
+		</view>
+		<view class="cardBody">
+			<view wx:for="{{serveList}}" wx:key="index" data-img="{{item.ser_classify}}" data-id="{{index}}" bindtap="goodDetail">
+				<van-card price="{{item.ser_price}}" desc="{{item.ser_desc}}" title="{{item.ser_name}}" thumb="{{ serveImage[item.ser_classify] }}" custom-class="customClass" title-class="titleStyle" desc-class="titleStyle" />
+			</view>
+      <view wx:if="{{serveList.length==0}}">暂无数据</view>
+			<view wx:if="{{baseline}}" class="baseline">
+				<van-divider contentPosition="center">我是有底线的</van-divider>
+			</view>
+		</view>
+	</view>
+</view>

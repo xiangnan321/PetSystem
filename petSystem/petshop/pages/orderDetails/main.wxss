@@ -1,0 +1,77 @@
+/* pages/orderDetails/main.wxss */
+.navigationStyle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  /* background:linear-gradient(to right,#fe9100,#ff5100); */
+  background-color: #20c40b;
+  color: white;
+}
+
+.navigationStyle>image {
+  width: 100px;
+  height: 100px;
+}
+
+.addressStyle {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  background-color: white;
+}
+
+.addressStyle>image {
+  width: 60px;
+  height: 50px;
+}
+
+.addressStyle>view {
+  margin-left: 10px;
+}
+
+.addressStyle text {
+  color: grey;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.addressStyle>view>view:last-child {
+  margin-top: 5px;
+}
+
+.titleStyle {
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.titleStyle>view>view {
+  color: grey;
+  font-size: 12px;
+}
+
+.additional {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 5px 10px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.price {
+  font-size: 16px;
+}
+
+.price>view:last-child {
+  color: red;
+}
+.btnBody{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;  
+}
+.btnStyle{
+  margin-right: 10px;
+}

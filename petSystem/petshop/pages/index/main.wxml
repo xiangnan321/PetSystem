@@ -1,0 +1,38 @@
+<!--pages/index/main.wxml-->
+<view class="bodyStyle">
+	<swiperImg imgUrls="{{imgUrls}}" swiperHeight="height:365rpx" aspectFit="aspectFll"></swiperImg>
+	<van-notice-bar left-icon="volume" backgroundColor="white" text="欢迎来到夤夜宠物商店！！！这里有最齐全的宠物商品和宠物服务。" />
+	<view class="functionBar">
+		<van-grid border="{{false}}">
+			<van-grid-item use-slot wx:for="{{ functionBar }}" data-id="{{index+1}}" data-name="{{item.name}}" wx:key="index" bind:click="jumpById">
+				<view class="barImg">
+					<image style="width: 40px; height: 40px;" src="{{item.src}}" />
+					<view class="barName">{{item.name}}</view>
+				</view>
+			</van-grid-item>
+		</van-grid>
+	</view>
+	<view class="cheapGoods">
+		<view class="divider"><text class="divider_line">——</text>低价好货<text class="divider_line">——</text></view>
+		<scroll-view class="image-group" scroll-x="true">
+			<view class="item_list" wx:for="{{cheapGoods}}" wx:key="index" data-id="{{item.good_id}}" bindtap="goodDetail">
+				<image style="width: 120px;height: 120px;" src="{{item.good_images}}" mode="aspectFit"></image>
+				<view class="item_text">{{item.good_name}}</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="recommend">
+		<view class="divider"><text class="divider_line">——</text>好物推荐<text class="divider_line">——</text></view>
+		<view class="goodThing">
+			<view class="goodThing_good goodBorder" wx:for="{{goodsList}}" wx:key="index" data-id="{{item.good_id}}" bindtap="goodDetail">
+				<image style="width: 120px;height: 120px;" src="{{item.good_images}}" mode="aspectFit"></image>
+				<view class="item_text">{{item.good_name}}</view>
+				<view class="item_price">￥{{item.good_price}}</view>
+			</view>
+			<view class="goodThing_good" wx:for="{{2-goodsList.length%2}}" wx:key="index"></view>
+		</view>
+	</view>
+	<view wx:if="{{baseline}}" class="baseline">
+		<van-divider contentPosition="center">我是有底线的</van-divider>
+	</view>
+</view>

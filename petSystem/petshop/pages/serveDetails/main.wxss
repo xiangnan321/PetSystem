@@ -1,0 +1,128 @@
+/* pages/serveDetails/main.wxss */
+.detailsBody {
+  margin-bottom: 60px;
+}
+
+.details {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.information {
+  width: 85%;
+}
+
+.information>._p:nth-child(1) {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.information>._p:nth-child(2) {
+  margin-top: 10px;
+}
+
+.information>._p:nth-child(3) {
+  color: gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.details>._p {
+  width: 32px;
+  height: 32px;
+}
+
+.distanceStyle {
+  margin-bottom: 10px;
+  /* margin-top: 10px; */
+}
+
+.contactStyle {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.busInformation {
+  width: 60%;
+}
+
+.busInformation>view:last-child {
+  font-size: 12px;
+  color: grey;
+}
+
+.contactStyle>view:last-child {
+  width: 40px;
+  height: 40px;
+}
+
+.vanTab {
+  color: red ! important;
+}
+
+.seizeASeat {
+  height: 100px;
+  background-color: white;
+  padding-top: 10px;
+  margin-top: 2px;
+}
+
+.evaluate {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.evaluate>._div {
+  width: 50px;
+  height: 40px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.detailsImg>image {
+  height: 280px;
+  margin-bottom: 5px;
+}
+
+.detailsImg>view:first-child {
+  background-color: white;
+  padding: 5px;
+}
+
+.detailsImg>view:first-child>view:first-child {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.detailsImg>view:first-child>view:first-child>view {
+  display: flex;
+}
+
+.detailsImg>view:first-child>view:first-child>view {
+  display: flex;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.detailsImg>view:first-child>view:first-child>view>image {
+  width: 20px;
+  height: 20px;
+}
+
+.btnSty {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  z-index: 3;
+}

@@ -1,0 +1,77 @@
+<!--pages/orderDetails/main.wxml-->
+<view>
+	<view class="navigationStyle">
+		<block wx:if="{{goodsOrder.oG_status==1}}">
+			<view>交易进行中</view>
+			<image src="../../assets/image/pendingPayment.png"></image>
+		</block>
+		<block wx:elif="{{goodsOrder.oG_status==2}}">
+			<view>交易进行中</view>
+			<image src="../../assets/image/toBeShipped.png"></image>
+		</block>
+		<block wx:elif="{{goodsOrder.oG_status==3}}">
+			<view>交易进行中</view>
+			<image src="../../assets/image/goodsToBeReceived.png"></image>
+		</block>
+		<block wx:else>
+			<view>交易成功</view>
+			<image src="../../assets/image/successfulTrade.png"></image>
+		</block>
+	</view>
+	<view class="addressStyle">
+		<image src="../../assets/image/address_icon.png"></image>
+		<view>
+			<view>{{goodsOrder.addressBean.add_name}} <text>{{goodsOrder.addressBean.add_phone}}</text></view>
+			<view>{{goodsOrder.addressBean.add_address}}</view>
+		</view>
+	</view>
+	<view>
+		<van-card desc="{{ goodsOrder.goodsBean.good_name }}" thumb="{{ goodsOrder.goodsBean.good_images }}">
+			<view slot="title" class="titleStyle">
+				<view>{{ goodsOrder.goodsBean.good_name }}</view>
+				<view>
+					￥{{ goodsOrder.goodsBean.good_price }}
+					<view>×{{ goodsOrder.oG_sum }}</view>
+				</view>
+			</view>
+		</van-card>
+		<view class="additional">
+			<view>商品总价</view>
+			<view>￥{{ goodsOrder.goodsBean.good_price*goodsOrder.oG_sum }}</view>
+		</view>
+		<view class="additional">
+			<view>运费</view>
+			<view>￥0.00</view>
+		</view>
+		<view class="additional">
+			<view>运费险(卖家赠送)</view>
+			<view>￥0.00</view>
+		</view>
+		<view class="additional">
+			<view>优惠</view>
+			<view>￥0.00</view>
+		</view>
+		<view class="additional">
+			<view>红包抵扣</view>
+			<view>￥0.00</view>
+		</view>
+		<view class="additional price">
+			<view>实付款</view>
+			<view>￥{{ goodsOrder.goodsBean.good_price*goodsOrder.oG_sum }}</view>
+		</view>
+	</view>
+	<van-goods-action>
+	<view class="btnBody">
+		<van-button round size="small" custom-class="btnStyle" id="viewLogistics">查看物流</van-button>
+		<van-button round size="small" custom-class="btnStyle" data-id="{{goodsOrder.oG_status.oG_id}}" wx:if="{{goodsOrder.oG_status==1}}" bind:click="immediatePayment" id="viewLogistics">立即付款</van-button>
+		<van-button round size="small" custom-class="btnStyle" data-type="取消订单" data-id="{{goodsOrder.oG_status.oG_id}}" wx:if="{{goodsOrder.oG_status==1}}" bind:click="deleteOrder" id="viewLogistics">取消订单</van-button>
+		<van-button round size="small" custom-class="btnStyle" wx:if="{{goodsOrder.oG_status==2}}" id="viewLogistics">提醒发货</van-button>
+		<van-button round size="small" custom-class="btnStyle" wx:if="{{goodsOrder.oG_status==2}}" id="viewLogistics">申请退货</van-button>
+		<van-button round size="small" custom-class="btnStyle" wx:if="{{goodsOrder.oG_status==3}}" id="viewLogistics">延迟收货</van-button>
+		<van-button round size="small" custom-class="btnStyle" data-id="{{goodsOrder.oG_status.oG_id}}" wx:if="{{goodsOrder.oG_status==3}}" bind:click="confirmReceipt" id="viewLogistics">确认收货</van-button>
+		<van-button round size="small" custom-class="btnStyle" data-type="删除订单" data-id="{{goodsOrder.oG_status.oG_id}}" wx:if="{{goodsOrder.oG_status>3}}" bind:click="deleteOrder" id="viewLogistics">删除订单</van-button>
+		<van-button round size="small" custom-class="btnStyle" data-id="{{goodsOrder.oG_status.oG_id}}" wx:if="{{goodsOrder.oG_status==4}}" bind:click="evaluate" id="viewLogistics">评价</van-button>
+		<van-button round size="small" custom-class="btnStyle" wx:if="{{goodsOrder.oG_status==5}}" id="viewLogistics">追加评价</van-button>
+	</view>
+	</van-goods-action>
+</view>

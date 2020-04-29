@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "服务详情",
+  "usingComponents": {
+    "swiperImg": "../../components/swiperImg/swiperImg",
+    "van-rate": "@vant/weapp/rate/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-calendar": "@vant/weapp/calendar/index"
+  }
+}

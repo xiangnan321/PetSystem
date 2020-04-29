@@ -1,0 +1,79 @@
+<!--pages/serveDetails/main.wxml-->
+<view>
+	<view class="detailsBody">
+		<swiperImg imgUrls="{{imgUrls}}" swiperHeight="height:280px" aspectFit="aspectFll"></swiperImg>
+		<view class="details">
+			<view class="information">
+				<view class="_p">￥{{serveDetail.ser_price}}
+					<van-rate readonly allow-half value="{{ 4.5 }}" bind:change="onChange" />
+				</view>
+				<view class="_p">{{serveDetail.ser_name}}</view>
+				<!-- <view class="_p">{{goodDetail.good_cassify}}</view> -->
+			</view>
+			<view class="_p">
+				<image src="../../assets/image/resizeApi.png" />
+			</view>
+		</view>
+		<view class="distanceStyle">
+			<van-cell-group>
+				<van-cell title="成都锦江区红星路三段大科甲巷8号" icon="location">
+					<van-icon slot="right-icon" name="search" class="custom-icon" />
+				</van-cell>
+			</van-cell-group>
+		</view>
+		<view class="distanceStyle contactStyle">
+			<view class="busInformation">
+				<view>欢迎光临，我是店主</view>
+				<view>本店24小时不打烊，点击右侧按钮立即咨询店主 → → → →</view>
+			</view>
+			<view>
+				<image src="../../assets/image/contact.png"></image>
+			</view>
+		</view>
+		<view wx:if="{{user!=null}}" class="distanceStyle">
+			<van-cell title="选择预约时间" value="{{ date }}" bind:click="onDisplay" />
+		</view>
+		<van-tabs sticky swipeable custom-class="tabStyle" tab-active-class="vanTab" nav-class="naClass">
+			<van-tab title="详情">
+				<view class="detailsImg">
+					<view>
+						<view>
+							<view>
+								<image src="../../assets/image/wifiIcon.png"></image> WiFi
+							</view>
+							<view>
+								<image src="../../assets/image/parkingSpace.png"></image>停车位
+							</view>
+							<view>
+								<image src="../../assets/image/alipayIcon.png"></image>支付宝支付
+							</view>
+							<view>
+								<image src="../../assets/image/weixingIcon.png"></image>微信支付
+							</view>
+						</view>
+						<view>营业时间：24小时营业</view>
+					</view>
+					<image wx:for="{{imgUrls}}" wx:key="index" src="{{item.url}}" mode="aspectFit"></image>
+				</view>
+			</van-tab>
+			<van-tab title="评价">
+				<view class="evaluate seizeASeat">
+					<view class="_div">全部({{goodDetail.good_sum}})</view>
+					<view class="_div">好评({{goodDetail.good_sum}})</view>
+					<view class="_div">中评(0)</view>
+					<view class="_div">差评(0)</view>
+				</view>
+			</van-tab>
+			<van-tab title="推荐">
+				<view class="seizeASeat">暂无推荐商品</view>
+			</van-tab>
+		</van-tabs>
+	</view>
+	<view wx:if="{{user==null}}" class="btnSty">
+		<van-button round type="primary" custom-style="width: 96%;margin: 0 0 5px 2%;" bind:click="loginPage">登录后进行操作</van-button>
+	</view>
+	<view wx:else class="btnSty">
+		<van-button round type="primary" bind:click="makeAnAppointment" custom-style="width: 96%;margin: 0 0 5px 2%;">预约</van-button>
+	</view>
+	<van-calendar show="{{ parameterShow }}" max-date="{{maxDate}}" show-confirm="{{ false }}" bind:close="onClose" bind:confirm="onConfirm" />
+</view>

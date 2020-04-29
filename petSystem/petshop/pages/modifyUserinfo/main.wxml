@@ -1,0 +1,29 @@
+<!--pages/modifyUserinfo/main.wxml-->
+<view>
+	<view class="inputInformation">
+		<view class="headPortrait">
+			<view bindtap="enlarge"  data-src="{{user_image}}"  data-list="{{[user_image]}}">
+				<!-- <image src="{{user_image}}" mode="aspectFit" /> -->
+			<van-image round fit="cover" width="100px" height="100px" src="{{user_image}}" />
+			</view>
+			<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead">
+				<view class=uploaderText">点击更换头像</view>
+			</van-uploader>
+		</view>
+		<van-cell-group>
+			<van-field value="{{ user_username }}" clearable label="用户名" placeholder="请输入用户名" bind:change="user_usernameChange" />
+			<van-radio-group value="{{ user_gender }}" bind:change="genderChange">
+				<view class="genderStyle">
+					<view>性别</view>
+					<van-radio name="1" label-class="labelStyle">男</van-radio>
+					<van-radio name="2">女</van-radio>
+				</view>
+			</van-radio-group>
+			<van-field clearable value="{{user_phone}}" label="手机号" placeholder="请输入手机号" error-message="{{nameMessage}}" bind:change="user_phone" />
+		</van-cell-group>
+	</view>
+	<view>
+		<van-button type="danger" round size="normal" custom-style="width: 94%;margin-left: 3%;" data-type="add" bind:click="modifyBtn">修改</van-button>
+		<van-button type="danger" round size="normal" custom-style="width: 94%;margin-left: 3%;margin-top: 15px;" data-type="add" bind:click="cancel">取消</van-button>
+	</view>
+</view>

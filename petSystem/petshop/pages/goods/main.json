@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "商品分类",
+  "usingComponents": {
+    "swiperImg":"../../components/swiperImg/swiperImg",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

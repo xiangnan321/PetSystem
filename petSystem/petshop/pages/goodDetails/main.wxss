@@ -1,0 +1,192 @@
+/* pages/goodDetails/main.wxss */
+.detailsBody {
+  margin-bottom: 60px;
+}
+
+.details {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.information {
+  width: 85%;
+}
+
+.information>._p:nth-child(1) {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.information>._p:nth-child(2) {
+  margin-top: 10px;
+}
+
+.information>._p:nth-child(3) {
+  color: gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.details>._p {
+  width: 32px;
+  height: 32px;
+}
+
+.cellSlot {
+  font-size: 12px;
+  font-weight: bold;
+  color: grey;
+  display: flex;
+}
+
+.marginLeft {
+  margin-left: 10px;
+  color: black;
+}
+
+.redStyle {
+  color: red;
+  margin-right: 5px;
+}
+
+.tabStyle {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.vanTab {
+  color: red ! important;
+}
+
+.seizeASeat {
+  height: 100px;
+  background-color: white;
+  padding-top: 10px;
+  margin-top: 2px;
+}
+
+.evaluate {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.evaluate>._div {
+  width: 50px;
+  height: 40px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.detailsImg>image {
+  height: 280px;
+  margin-bottom: 5px;
+}
+
+.parameter {
+  font-size: 16px;
+  /* font-weight: 900; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.parameterTitle {
+  width: 30%;
+}
+
+.parameterContent {
+  width: 70%;
+}
+
+.lineOne {
+  display: flex;
+  position: relative;
+}
+
+.lineOne>image {
+  width: 100px;
+  height: 100px;
+  /* position: absolute; */
+  /* top: -40px;
+  left: 10px; */
+  border: 5px solid white;
+  background-color: white;
+  box-shadow: 0 0 4rpx 4rpx grey;
+}
+
+.lineOne_details {
+  margin-left: 5%;
+}
+
+.lineOne_details_price {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+}
+
+.lineOne_details_price>text {
+  font-size: 18px;
+}
+
+.lineOne_details_sum {
+  color: grey;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.lineOne_details_selected {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.lineTwo {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.lineTwo>view:last-child {
+  display: inline-block;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 0 5px;
+  background-color: #faf7f7a6;
+  vertical-align: middle;
+  margin-right: 5%;
+  margin-top: 10px;
+}
+
+.lineTwo>view>image {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 5px
+}
+
+.lineThree {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.notLoggedIn{
+  position: fixed;
+  bottom: 0;
+  left: 2%;
+  right: 2%;
+  z-index: 2;
+}
+.van-goods-action{
+  z-index: 2 !important;
+}

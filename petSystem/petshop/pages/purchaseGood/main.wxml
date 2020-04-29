@@ -1,0 +1,79 @@
+<!--pages/purchaseGood/main.wxml-->
+<view class="pageBody">
+	<view class="addressStyle" bindtap="choiceAdd" data-id="{{goodsList[0].usersBean.user_id}}">
+		<view>
+			<image src="../../assets/image/address_icon.png"></image>
+		</view>
+		<view wx:if="{{address!=null}}">
+			<view>{{address.add_name}} <text>{{address.add_phone}}</text></view>
+			<view>{{address.add_address}}</view>
+			<view>收货不便时，可选择暂存服务</view>
+		</view>
+		<view wx:else>
+			请选择收货地址
+		</view>
+		<view>
+			<van-icon name="arrow" />
+		</view>
+
+	</view>
+	<view class="goodsDetails" wx:for="{{goodsList}}" wx:key="index">
+		<van-card custom-class="cardBody" desc="{{ item.goodsBean.good_name }}" thumb="{{ item.goodsBean.good_images }}">
+			<view slot="title" class="titleStyle">
+				<view>{{ item.goodsBean.good_name }}</view>
+				<view>
+					￥{{ item.goodsBean.good_price }}
+					<view>×{{ item.oG_sum }}</view>
+				</view>
+			</view>
+			<view slot="price-top" class="priceTop">
+				发货时间：付款后48小时内
+			</view>
+		</van-card>
+		<view class="additional">
+			<view>公益宝贝</view>
+			<view>成交后卖家将捐赠0.02元给公益宝贝</view>
+			<view>
+				<van-icon name="arrow" color="grey" />
+			</view>
+		</view>
+		<view class="additional">
+			<view>配送方式</view>
+			<view>普通配送</view>
+			<view>
+				快递 免邮
+				<van-icon name="arrow" color="grey" />
+			</view>
+		</view>
+		<view class="additional">
+			<view>
+				<van-icon name="question-o" />运费险</view>
+			<view>卖家赠送，退换货可赔</view>
+			<view>
+				<van-icon name="arrow" color="grey" />
+			</view>
+		</view>
+		<view class="additional">
+			<view>订单备注</view>
+			<view>
+				<van-field value="{{ item.remarks }}" type="textarea" placeholder="选填，请先和商家协商一致" autosize border="{{ false }}" />
+			</view>
+		</view>
+		<view class="subtotal">
+			<text>共{{ item.oG_sum }}件</text>
+			<text>小计：</text><text>￥{{item.oG_sum*item.goodsBean.good_price}}</text>
+		</view>
+	</view>
+	<view>
+		<van-cell value="无" is-link>
+			<view slot="title">
+				<view class="van-cell-text">
+					<van-icon name="bill" color="red" />红包</view>
+			</view>
+		</van-cell>
+	</view>
+	<view class="buttonSty">
+		<van-checkbox value="{{ checked }}" checked-color="red" bind:change="onChange" class="checked">匿名购买</van-checkbox>
+	</view>
+	<van-submit-bar price="{{ money*100 }}" button-text="提交订单" bind:submit="onSubmit" />
+</view>
